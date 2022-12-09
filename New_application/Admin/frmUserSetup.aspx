@@ -133,7 +133,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label text-danger">
-                                    <asp:Label ID="lblConPass" runat="server" Text="Confirm Password"></asp:Label>
+                                    <asp:Label ID="lblConPass" runat="server" Text="Password"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtConpass" placeholder="Confirm Password" runat="server" class="form-control" required="submit"></asp:TextBox>
