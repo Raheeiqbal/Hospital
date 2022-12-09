@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="New_application.main" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title></title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <header id="header" class="header fixed-top d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-between">
+                    <a href="frmDashboard.aspx" class="logo d-flex align-items-center">
+                        <span class="d-none d-lg-block">Hospital Application</span>
+                    </a>
+                    <i class="bi bi-list toggle-sidebar-btn"></i>
+                </div>
+                <div class="search-bar">
+                    <div class="search-form d-flex align-items-center" method="POST" action="#">
+                        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <nav class="header-nav ms-auto">
+                    <ul class="d-flex align-items-center">
+                        <li class="nav-item dropdown pe-3">
+                            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                                <img src="\profile.png" <%--alt="Profile" --%>class="rounded-circle">
+                                <span class="d-none d-md-block dropdown-toggle ps-2">USER NAME</span>
+                            </a>
+                            <!-- End Profile Iamge Icon -->
+
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                                <li class="dropdown-header">
+                                    <h6>RICAAZ</h6>
+                                    <span>Web Designer & Developer</span>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="\Loginpage.aspx">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <span>Sign Out</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <aside id="sidebar" class="sidebar">
+                <ul class="sidebar-nav" id="sidebar-nav">
+                    <li class="nav-heading">Pages</li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="\pages/frmDashboard.aspx">
+                            <i class="bi bi-grid"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#admin-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-people-fill"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="\Admin/frmUserSetup.aspx">
+                                    <i class="bi bi-circle"></i><span>User setup</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="\Admin/frmUserSetup.aspx">
+                                    <i class="bi bi-circle"></i><span>Role setup</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                            <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+                        </a>
+                        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                            <li>
+                                <a href="\pages/firstpage.aspx">
+                                    <i class="bi bi-circle"></i><span>Registration</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <%--<div id="page-wrapper">
+                <!-- /.container-fluid -->
+                <div style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto;">
+                    <iframe id="I1" name="I1" runat="server" frameborder="0" visible="true" enableviewstate="true" seamless="seamless" style="width: 100%; height: 95vh;" scrolling="yes"></iframe>
+
+                </div>
+            </div>--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <script src="<%=ResolveUrl("~/assets/vendor/apexcharts/apexcharts.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/chart.js/chart.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/echarts/echarts.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/quill/quill.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/simple-datatables/simple-datatables.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/tinymce/tinymce.min.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/vendor/php-email-form/validate.js") %>"></script>
+            <script src="<%=ResolveUrl("~/assets/js/main.js") %>"></script>
+        </div>
+    </form>
+</body>
+</html>
