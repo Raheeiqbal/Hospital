@@ -16,8 +16,8 @@
                         </div>
                     </div>
                     <hr />
-                      <div>
-                     <div class="row">
+                    <div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-label text-danger">
                                     <asp:Label ID="lblUSRcode" runat="server" Text="Role Code"></asp:Label>
@@ -37,7 +37,49 @@
                                 </div>
                             </div>
                         </div>
-                   </div> 
+                        <div class="col-md-12">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:GridView ID="GVADMIN" Width="100%" runat="server" CssClass="GridMain" AlternatingRowStyle-CssClass="alt" RowStyle-CssClass="tr" Font-Size="8pt" Font-Names="Verdana" DataKeyNames="" AutoGenerateColumns="False">
+                                            <Columns>
+                                                <asp:BoundField DataField="" ItemStyle-Width="550px" HeaderText="Form Name" ReadOnly="True" HeaderStyle-HorizontalAlign="Left" ItemStyle-HorizontalAlign="Left"></asp:BoundField>
+                                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
+                                                    <HeaderTemplate>
+                                                        <asp:CheckBox ID="CHK_VIEW_All" AutoPostBack="true" Text=" View" runat="server" />
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:CheckBox ID="CHK_VIEW" runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
+                                                    <HeaderTemplate>
+                                                        <asp:CheckBox ID="CHK_INS_All" AutoPostBack="true" Text=" Insert" runat="server" />
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:CheckBox ID="CHK_INS" runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+
+                                                <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
+                                                    <HeaderTemplate>
+                                                        <asp:CheckBox ID="CHK_UPD_All" AutoPostBack="true" Text=" Update" runat="server" />
+                                                    </HeaderTemplate>
+                                                    <ItemTemplate>
+                                                        <asp:CheckBox ID="CHK_UPD-" runat="server" />
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                        </asp:GridView>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

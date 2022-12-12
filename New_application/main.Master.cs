@@ -15,11 +15,12 @@ namespace New_application
         DataAccess obj = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-                //GenMenu();
+                GenMenu();
         }
         void GenMenu()
         {
-            string sConstr = @"Data Source=SW-Raheel\SQLEXPRESS;Initial Catalog=dynamic_menu;Integrated Security=True";
+
+            string sConstr = obj.connection();
             SqlDataAdapter adp = new SqlDataAdapter("select * from dynamic_menu", sConstr);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -33,19 +34,17 @@ namespace New_application
             {
                 if (parent.Length > 0)
                 {
-                    sMenuMarkup += "<li class='nav-item'> <a class='nav-link collapsed' href='#' data-toggle='collapse' data-target='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' aria-controls='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'> <i class='fa fa-fw fa-arrows-v'></i>" + parent[x]["Formname"].ToString() + "<i class='fa fa-fw fa-caret-down'></i></a>";
-                    //sMenuMarkup += "<ul id='" + parent[x]["ParentID"].ToString() + x.ToString() + "' class='collapse'>";
-                    sMenuMarkup += "<div id='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' class='collapse' data-parent='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'>";
-                    sMenuMarkup += "<div class='bg-white py-2 collapse-inner rounded'>";
+                    sMenuMarkup += "<li class='nav-item'> <a class='nav-link collapsed' href='#' data-bs-toggle='collapse' data-bs-target='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' aria-controls='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'> <i class='bi bi-people-fill'></i>" + parent[x]["Formname"].ToString() + "<i class='bi bi-chevron-down ms-auto'></i></a>";
+                    sMenuMarkup += "<ul id='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' class='nav-content collapse' data-parent='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'>";
                     DataRow[] child = dt.Select("ParentID=" + parent[x]["FormID"]);
                     for (int y = 0; y < child.Length; y++)
                     {
-                        sMenuMarkup += "<a class='collapse-item' target='I1' href='" + child[y]["PageUrl"].ToString() + "?f=" + child[y]["FormID"].ToString() + "&s=" + "'>" + child[y]["Formname"].ToString() + "</a>";
+                        sMenuMarkup += "<li><a class='collapse-item' target='I1' href='" + child[y]["PageUrl"].ToString() + "?f=" + child[y]["FormID"].ToString() + "&s=" + "'><i class='bi bi-circle'></i><span>" + child[y]["Formname"].ToString() + "</span></a></li>";
                     }
-                    sMenuMarkup += "</div></div> </li>";
+                    sMenuMarkup += "</ul></li>";
                 }
             }
-           // App_Menu.InnerHtml = HttpUtility.HtmlDecode(sMenuMarkup);
+            App_Menu.InnerHtml = HttpUtility.HtmlDecode(sMenuMarkup);
         }
 
     }
