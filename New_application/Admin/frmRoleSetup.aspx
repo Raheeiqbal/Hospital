@@ -11,8 +11,8 @@
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" runat="server" Text="Submit" OnClick="btnSubmit_Click"/>
-                            <asp:Button ID="btnReset" class="btn btn-primary" runat="server" Text="Reset" />
+                            <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" runat="server" Text="Submit" OnClientClick="return confirm('Do you want to submit?')" OnClick="btnSubmit_Click"/>
+                            <asp:Button ID="btnReset" class="btn btn-primary" runat="server" Text="Reset" OnClick="btnReset_Click" OnClientClick="return confirm('Do you want Reset?')" />
                         </div>
                     </div>
                     <hr />
@@ -23,7 +23,7 @@
                                     <asp:Label ID="lblrolcode" runat="server" Text="Role Code"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtrolcode" runat="server" class="form-control" placeholder="Role Code" disabled=""></asp:TextBox>
+                                    <asp:TextBox ID="txtrolcode" runat="server" class="form-control" placeholder="Role Code" AutoPostBack="false"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
