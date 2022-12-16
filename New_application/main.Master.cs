@@ -15,7 +15,7 @@ namespace New_application
         DataAccess obj = new DataAccess();
         protected void Page_Load(object sender, EventArgs e)
         {
-                GenMenu();
+            GenMenu();
         }
         void GenMenu()
         {

@@ -22,8 +22,6 @@ namespace New_application.pages
                 getData("city");
                 getData("Con");
             }
-
-
         }
         void getData(string value)
         {
@@ -46,10 +44,6 @@ namespace New_application.pages
                 ddlCon.DataValueField = "City_Code";
                 ddlCon.DataBind();
             }
-
-
-
-
         }
     }
 }

@@ -33,13 +33,13 @@ namespace New_application.Admin
         protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
-        /// lblUSRcode control.
+        /// lblrolcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUSRcode;
+        protected global::System.Web.UI.WebControls.Label lblrolcode;
 
         /// <summary>
         /// txtrolcode control.
@@ -60,21 +60,21 @@ namespace New_application.Admin
         protected global::System.Web.UI.WebControls.Label lblLGNid;
 
         /// <summary>
-        /// txtrolid control.
+        /// txtrolName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtrolid;
+        protected global::System.Web.UI.WebControls.TextBox txtrolName;
 
         /// <summary>
-        /// GVADMIN control.
+        /// rpt_data control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVADMIN;
+        protected global::System.Web.UI.WebControls.Repeater rpt_data;
     }
 }
