@@ -20,8 +20,7 @@ namespace New_application
         void GenMenu()
         {
 
-            string sConstr = obj.connection();
-            SqlDataAdapter adp = new SqlDataAdapter("select * from dynamic_menu", sConstr);
+            SqlDataAdapter adp = new SqlDataAdapter("select * from dynamic_menu", obj.connection());
             DataTable dt = new DataTable();
             adp.Fill(dt);
             dt.Dispose();
@@ -34,7 +33,7 @@ namespace New_application
             {
                 if (parent.Length > 0)
                 {
-                    sMenuMarkup += "<li class='nav-item'> <a class='nav-link collapsed' href='#' data-bs-toggle='collapse' data-bs-target='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' aria-controls='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'> <i class='bi bi-people-fill'></i>" + parent[x]["Formname"].ToString() + "<i class='bi bi-chevron-down ms-auto'></i></a>";
+                    sMenuMarkup += "<li class='nav-item'> <a class='nav-link collapsed' href='#' data-bs-toggle='collapse' data-bs-target='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' aria-controls='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'> <i class='" + parent[x]["Icon"].ToString() + "'></i>" + parent[x]["Formname"].ToString() + "<i class='bi bi-chevron-down ms-auto'></i></a>";
                     sMenuMarkup += "<ul id='#" + parent[x]["ParentID"].ToString() + x.ToString() + "' class='nav-content collapse' data-parent='#" + parent[x]["ParentID"].ToString() + x.ToString() + "'>";
                     DataRow[] child = dt.Select("ParentID=" + parent[x]["FormID"]);
                     for (int y = 0; y < child.Length; y++)

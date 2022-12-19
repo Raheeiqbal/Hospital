@@ -77,54 +77,9 @@
                 </nav>
             </header>
             <aside id="sidebar" class="sidebar">
-                <%--<ul class="sidebar-nav" id="sidebar-nav">
-                    <li class="nav-heading">Pages</li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="\pages/frmDashboard.aspx">
-                            <i class="bi bi-grid"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" data-bs-target="#admin-nav" data-bs-toggle="collapse" href="#">
-                            <i class="bi bi-people-fill"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="admin-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                            <li>
-                                <a href="\Admin/frmUserSetup.aspx">
-                                    <i class="bi bi-circle"></i><span>User setup</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="\Admin/frmRoleSetup.aspx">
-                                    <i class="bi bi-circle"></i><span>Role setup</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                            <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
-                        </a>
-                        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                            <li>
-                                <a href="\pages/firstpage.aspx">
-                                    <i class="bi bi-circle"></i><span>Registration</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>--%>
                 <ul class="sidebar-nav" id="App_Menu" runat="server">
                 </ul>
             </aside>
-            <%--<div id="page-wrapper">
-                <!-- /.container-fluid -->
-                <div style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto;">
-                    <iframe id="I1" name="I1" runat="server" frameborder="0" visible="true" enableviewstate="true" seamless="seamless" style="width: 100%; height: 95vh;" scrolling="yes"></iframe>
-
-                </div>
-            </div>--%>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
 

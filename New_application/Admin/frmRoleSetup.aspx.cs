@@ -7,13 +7,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.Security;
 
 namespace New_application.Admin
 {
     public partial class frmRoleSetup : System.Web.UI.Page
     {
         DataAccess obj = new DataAccess();
-        DataTable data = new DataTable();
+        DataTable data = new DataTable(); 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -43,7 +45,7 @@ namespace New_application.Admin
             {
                 XMLR += "<RoleCode>" + Session["Code"].ToString().ToUpper() + "</RoleCode>";
             }
-            XMLR += "<RoleCode>" + txtrolName.Text + "</RoleCode>";
+            XMLR += "<RoleName>" + txtrolName.Text + "</RoleName>";
             XMLR += "</Role>";
             string XMLD = "<RoleDetail>";
             for (int i = 0; i < rpt_data.Items.Count; i++)
@@ -53,9 +55,9 @@ namespace New_application.Admin
                 {
                     XMLD += "<RoleCode>" + Session["Code"].ToString() + "</RoleCode>";
                 }
-                XMLD += "<FormID>" + Session["FormID"].ToString() + "</FormID>";
+                XMLD += "<FormID>" + Request.QueryString["f"] + "</FormID>";
                 XMLD += "<FormName>" + ((Label)rpt_data.Items[i].FindControl("Formname")).Text + "</FormName>";
-                XMLD += "<Veiw>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_VIEW")).Checked ? "1" : "0") + "</Veiw>";
+                XMLD += "<View>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_VIEW")).Checked ? "1" : "0") + "</View>";
                 XMLD += "<Insert>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_INS")).Checked ? "1" : "0") + "</Insert>";
                 XMLD += "<Update>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_UPD")).Checked ? "1" : "0") + "</Update>";
                 XMLD += "</Row>";

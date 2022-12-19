@@ -23,7 +23,7 @@
                                     <asp:Label ID="lblrolcode" runat="server" Text="Role Code"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtrolcode" runat="server" class="form-control" placeholder="Role Code" AutoPostBack="false"></asp:TextBox>
+                                    <asp:TextBox ID="txtrolcode" runat="server" class="form-control bg-secondary-light" placeholder="Role Code" ReadOnly="true" AutoPostBack="false"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
