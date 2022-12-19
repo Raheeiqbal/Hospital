@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="frmUserSetup.aspx.cs" Inherits="New_application.Admin.frmUserSetup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script>
+        function openLovRole(mode) {
+            debugger;
+            var ControlID = '<%= txtRoleCode.ClientID %>';
+            var a = window.open('../Admin/frmRoleSetup.aspx?f=1003&ControlID=' + ControlID + '', 'LOV', window);
+            a.focus();
+            return false;
+        }
+    </script>
     <div class="card">
         <main id="main">
             <div class="needs-validation" novalidate="novalidate">
@@ -92,13 +101,12 @@
                                     <asp:Label ID="lblRoleNa" runat="server" Text="Role Name"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtUsername" runat="server" class="form-control input-sm" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm" required="submit"></asp:TextBox>
                                     <span class="input-group-btn">
-                                        <button class="form-control input-sm" runat="server" style="height: 31px">
+                                        <button class="form-control input-sm" id="btn_LovRole" onclick="return openLovRole('')" runat="server" style="height: 31px" >
                                             <span class="fa fa-search" aria-hidden="true"></span>
                                         </button>
                                     </span>
-                                    <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
                         </div>

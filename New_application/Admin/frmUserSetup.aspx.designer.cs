@@ -168,13 +168,22 @@ namespace New_application.Admin
         protected global::System.Web.UI.WebControls.Label lblRoleNa;
 
         /// <summary>
-        /// txtUsername control.
+        /// txtRoleCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtRoleCode;
+
+        /// <summary>
+        /// btn_LovRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btn_LovRole;
 
         /// <summary>
         /// lblCNIC control.
