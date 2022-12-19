@@ -881,6 +881,7 @@
     <Content Include="assets\vendor\tinymce\themes\silver\theme.min.js" />
     <Content Include="assets\vendor\tinymce\tinymce.js" />
     <Content Include="assets\vendor\tinymce\tinymce.min.js" />
+    <Content Include="DataSetup\frmDataList.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="font-awesome\css\font-awesome.css" />
     <Content Include="font-awesome\css\font-awesome.min.css" />
@@ -1065,6 +1066,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="DataSetup\frmDataList.aspx.cs">
+      <DependentUpon>frmDataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataSetup\frmDataList.aspx.designer.cs">
+      <DependentUpon>frmDataList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
