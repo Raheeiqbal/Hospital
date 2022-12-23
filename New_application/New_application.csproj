@@ -977,6 +977,7 @@
     <Content Include="assets\vendor\tinymce\package.json" />
     <Content Include="assets\vendor\tinymce\README.md" />
     <Content Include="Loginpage.aspx" />
+    <Content Include="Lov\LovRole.aspx" />
     <Content Include="main.Master" />
     <Content Include="font-awesome\css\vssver2.scc" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
@@ -1012,6 +1013,7 @@
     <Content Include="font-awesome\scss\_spinning.scss" />
     <Content Include="font-awesome\scss\_stacked.scss" />
     <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="LOVMaster.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="pages\firstpage.aspx" />
     <Content Include="pages\frmDashboard.aspx" />
@@ -1082,6 +1084,20 @@
     </Compile>
     <Compile Include="Loginpage.aspx.designer.cs">
       <DependentUpon>Loginpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LOVMaster.Master.cs">
+      <DependentUpon>LOVMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LOVMaster.Master.designer.cs">
+      <DependentUpon>LOVMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Lov\LovRole.aspx.cs">
+      <DependentUpon>LovRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lov\LovRole.aspx.designer.cs">
+      <DependentUpon>LovRole.aspx</DependentUpon>
     </Compile>
     <Compile Include="main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>

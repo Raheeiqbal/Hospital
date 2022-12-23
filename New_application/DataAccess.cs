@@ -49,6 +49,8 @@ namespace New_application
             adp.SelectCommand.CommandType = CommandType.StoredProcedure;
             adp.SelectCommand.Parameters.Add("P_userid", SqlDbType.VarChar, 100).Value = username;
             adp.SelectCommand.Parameters.Add("P_password", SqlDbType.VarChar, 100).Value = password;
+            adp.SelectCommand.Parameters.Add("@P_ValidUser", SqlDbType.VarChar, 100).Value = "";
+            adp.SelectCommand.Parameters.Add("@P_UserSession", SqlDbType.VarChar, 100).Value = "";
             adp.Fill(dt);
             dt.Dispose();
             return dt;

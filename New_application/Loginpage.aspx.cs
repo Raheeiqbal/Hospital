@@ -30,7 +30,7 @@ namespace New_application
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('invalid userid & password')", true);
                 }
-                DataTable dt = obj.sqladapter("sp_userlogin", txtUsername.Text, txtPassword.Text);
+                DataTable dt = obj.sqladapter("sp_Userlogin", txtUsername.Text, txtPassword.Text);
                 if (dt.Rows.Count > 0)
                 {
                     Response.Redirect("./pages/frmDashboard.aspx");

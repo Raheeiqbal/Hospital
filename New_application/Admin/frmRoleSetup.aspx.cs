@@ -47,7 +47,9 @@ namespace New_application.Admin
             }
             XMLR += "<RoleName>" + txtrolName.Text + "</RoleName>";
             XMLR += "</Role>";
+
             string XMLD = "<RoleDetail>";
+
             for (int i = 0; i < rpt_data.Items.Count; i++)
             {
                 XMLD += "<Row>";

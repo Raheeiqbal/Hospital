@@ -150,13 +150,13 @@ namespace New_application.Admin
         protected global::System.Web.UI.WebControls.Label lblEmaAdd;
 
         /// <summary>
-        /// txtEmaAdd control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmaAdd;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
         /// lblRoleNa control.
@@ -213,13 +213,13 @@ namespace New_application.Admin
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ddlSta control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSta;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
         /// lblPass control.

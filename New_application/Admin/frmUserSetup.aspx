@@ -5,7 +5,7 @@
         function openLovRole(mode) {
             debugger;
             var ControlID = '<%= txtRoleCode.ClientID %>';
-            var a = window.open('../Admin/frmRoleSetup.aspx?f=1003&ControlID=' + ControlID + '', 'LOV', window);
+            var a = window.open('../Lov/LovRole.aspx?f=1003&ControlID=' + ControlID + '', 'LOV', Window);
             a.focus();
             return false;
         }
@@ -20,8 +20,8 @@
                 <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" runat="server" Text="Submit" />
-                            <asp:Button ID="btnReset" class="btn btn-primary" runat="server" Text="Reset" />
+                            <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnReset" class="btn btn-primary" Text="Reset" runat="server" OnClick="btnReset_Click"/>
                         </div>
                     </div>
                     <hr />
@@ -61,7 +61,7 @@
                                     <asp:Label ID="lblDepNa" runat="server" Text="Depart Name"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtDepNa" placeholder="Depart Name" runat="server" class="form-control" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtDepNa" placeholder="Depart Name" runat="server" class="form-control"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                     <asp:Label ID="lblDesig" runat="server" Text="Designation"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtDesig" runat="server" class="form-control" placeholder="Designation" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtDesig" runat="server" class="form-control" placeholder="Designation"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     <asp:Label ID="lblEmaAdd" runat="server" Text="Email Address"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtEmaAdd" runat="server" class="form-control" placeholder="Email Address" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Email Address" required="submit"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                     <asp:Label ID="lblRoleNa" runat="server" Text="Role Name"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm  bg-secondary-light" ReadOnly="true"></asp:TextBox>
                                     <span class="input-group-btn">
                                         <button class="form-control input-sm" id="btn_LovRole" onclick="return openLovRole('')" runat="server" style="height: 31px" >
                                             <span class="fa fa-search" aria-hidden="true"></span>
@@ -125,7 +125,7 @@
                                     <asp:Label ID="Label2" runat="server" Text="Status"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:DropDownList ID="ddlSta" Class="form-select" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlStatus" Class="form-select" runat="server"></asp:DropDownList>
                                 </div>
                             </div>
                         </div>
