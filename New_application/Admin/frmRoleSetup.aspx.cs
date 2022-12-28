@@ -15,7 +15,7 @@ namespace New_application.Admin
     public partial class frmRoleSetup : System.Web.UI.Page
     {
         DataAccess obj = new DataAccess();
-        DataTable data = new DataTable(); 
+        DataTable data = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -63,7 +63,7 @@ namespace New_application.Admin
                 XMLD += "<Insert>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_INS")).Checked ? "1" : "0") + "</Insert>";
                 XMLD += "<Update>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_UPD")).Checked ? "1" : "0") + "</Update>";
                 XMLD += "</Row>";
-                
+
             }
             XMLD += "</RoleDetail>";
             SqlParameter[] para = new SqlParameter[]
@@ -109,9 +109,9 @@ namespace New_application.Admin
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Successfully Inserted')", true);
                 }
-                else if (Session["msg"].ToString() == "-1")
+                else if (Session["msg"].ToString() != null)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Error')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Invalid Action')", true);
                 }
             }
             catch (Exception ex)

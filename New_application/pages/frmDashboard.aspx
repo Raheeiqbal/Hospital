@@ -87,7 +87,7 @@
 
                         <div class="col-md-6">
                             <div class="card">
-                                <div class="filter">
+                                <div class="filter" style="text-align: right">
                                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                         <li class="dropdown-header text-start">

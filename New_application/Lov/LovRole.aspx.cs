@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Markup;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace New_application.Lov
 {
@@ -16,7 +18,11 @@ namespace New_application.Lov
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            fill();
+            if (!IsPostBack)
+            {
+
+                fill();
+            }
 
         }
         void fill()
@@ -45,8 +51,24 @@ namespace New_application.Lov
 
         protected void btnSelect_Click(object sender, EventArgs e)
         {
-            string FINUNIQUENUM = grdprview.Rows[((GridViewRow)((LinkButton)sender).NamingContainer).RowIndex].Cells[2].Text;
-            string xx = rpt_data.Items[((RepeaterItem)((Button)sender).NamingContainer).ItemIndex].ToString();
+            try
+            {
+                int irowindex = ((RepeaterItem)((Button)sender).NamingContainer).ItemIndex;
+                string controlID = Request.QueryString["ControlID"];
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ExPop", "ClosePop('" + controlID + "','" + controlID + "','" + ((Label)rpt_data.Items[irowindex].Controls[0]).Text + "','" + ((Label)rpt_data.Items[irowindex].Controls[1]).Text.Replace("&nbsp;", "" + "');"), true);
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "onclick", "window.close('" + controlID + "','" + RoleCOde + "','" + RoleCOde.Replace("&nbsp;", "") + "','" + btnControlID + "');", true);
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write(ex);
+            }
+
+        }
+
+        protected void rpt_data_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+
         }
     }
 }

@@ -2,10 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
-        function openLovRole(mode) {
+        function openLovRole() {
             debugger;
+            var PopProp = 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,left=280,top=130,height=530, width= 900 ,menubar=no,location=no,toolbar=no,scrollbars=yes,resizable=no';
             var ControlID = '<%= txtRoleCode.ClientID %>';
-            var a = window.open('../Lov/LovRole.aspx?f=1003&ControlID=' + ControlID + '', 'LOV', Window);
+            var a = window.open('../Lov/LovRole.aspx?f=' + ControlID + '', 'LOV', PopProp);
             a.focus();
             return false;
         }
@@ -21,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
-                            <asp:Button ID="btnReset" class="btn btn-primary" Text="Reset" runat="server" OnClick="btnReset_Click"/>
+                            <asp:Button ID="btnReset" class="btn btn-primary" Text="Reset" runat="server" OnClick="btnReset_Click" />
                         </div>
                     </div>
                     <hr />
@@ -32,7 +33,7 @@
                                     <asp:Label ID="lblUSRcode" runat="server" Text="User Code"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtUSRcode" runat="server" class="form-control" placeholder="User Code" required="submit"></asp:TextBox>
+                                    <asp:TextBox ID="txtUSRcode" runat="server" class="form-control bg-secondary-light" placeholder="User Code" required="submit" ReadOnly="true"></asp:TextBox>
                                     <div class="invalid-tooltip">select</div>
                                 </div>
                             </div>
@@ -103,7 +104,7 @@
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm  bg-secondary-light" ReadOnly="true"></asp:TextBox>
                                     <span class="input-group-btn">
-                                        <button class="form-control input-sm" id="btn_LovRole" onclick="return openLovRole('')" runat="server" style="height: 31px" >
+                                        <button class="form-control input-sm" id="btn_LovRole" onclick="return openLovRole('')" runat="server" style="height: 31px">
                                             <span class="fa fa-search" aria-hidden="true"></span>
                                         </button>
                                     </span>

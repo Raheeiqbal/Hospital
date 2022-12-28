@@ -22,6 +22,10 @@ namespace New_application.Admin
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             ExecutePro("IN");
+            if (ViewState["msg"] != null)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Successfully Inserted')", true);
+            }
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
@@ -35,6 +39,11 @@ namespace New_application.Admin
             {
                 txtUSRcode.Text = dt.Rows[0][0].ToString();
             }
+            ExecutePro("ddlS");
+            ddlStatus.DataSource = dt;
+            ddlStatus.DataTextField = "Status";
+            ddlStatus.DataValueField = "ID";
+            ddlStatus.DataBind();
         }
 
         void ExecutePro(string sAction)
