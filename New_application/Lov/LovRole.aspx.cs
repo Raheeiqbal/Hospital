@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using System.Windows.Markup;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.CompilerServices.RuntimeHelpers;
+using System.Security.Cryptography;
+using System.Web.Optimization;
 
 namespace New_application.Lov
 {
@@ -66,9 +68,46 @@ namespace New_application.Lov
 
         }
 
-        protected void rpt_data_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
+//        protected void rpt_data_ItemDataBound(object sender, RepeaterItemEventArgs e)
+//        {
 
-        }
+//            protected void btnSelect_Click(object sender, EventArgs e)
+//            {
+//                int irowindex = ((GridViewRow)((Button)sender).NamingContainer).RowIndex;
+//                string CtrlCode = Request.QueryString["cid"].ToString();
+//                string CtrlDesc = Request.QueryString["did"].ToString();
+//                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Pop", "ClosePop('" + CtrlCode + "','" + CtrlDesc + "','" + GV_Data.Rows[irowindex].Cells[0].Text + "','" + GV_Data.Rows[irowindex].Cells[1].Text.Replace("&nbsp;", "" + "');", true);
+//                ScriptManager.RegisterStartupScript(this, this.GetType(), "ExPop", "ClosePop('" + CtrlCode + "','" + CtrlDesc + "','" + GV_Data.Rows[irowindex].Cells[0].Text + "','" + GV_Data.Rows[irowindex].Cells[1].Text.Replace("&nbsp;", "" + "');", true);
+//            }
+
+
+//< script type = "text/javascript" >
+//        var PopProp = 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,left=280,top=130,height=530, width= 900 ,menubar=no,location=no,toolbar=no,scrollbars=yes,resizable=no';
+//            function openLovRole()
+//            {
+//                var ContCode = ('<%=txtutcode.ClientID%>');
+//                var ContDesc = ('<%=txtutdesc.ClientID%>');
+//                var a = window.open('../Lov/UnitTypeLov.aspx?cid=' + ContCode + '&did=' + ContDesc, '', PopProp);
+//                a.focus();
+//                return false;
+//            }
+//            function ClosePop(ControlID, Code, Desc)
+//            {
+//                window.opener.document.all(ControlID).value = Code + '~' + Desc;
+//                window.opener.document.all(ControlID).title = Code;
+//                window.opener.document.all(ControlID).focus;
+//                self.close();
+//            }
+//    </ script >
+
+//     function ClosePop(cid, did, cval, dval) {
+//                window.opener.document.getElementById(cid).value = cval;
+//                window.opener.document.getElementById(did).value = dval;
+//                self.close();
+//                window.close();
+//            }
+
+//            ((Label)rpt_data.Items[((RepeaterItem)((Button)sender).NamingContainer).ItemIndex].FindControl("RoleCo")).Text;
+//        }
     }
 }
