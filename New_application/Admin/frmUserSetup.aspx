@@ -6,7 +6,7 @@
             debugger;
             var PopProp = 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,left=280,top=130,height=530, width= 900 ,menubar=no,location=no,toolbar=no,scrollbars=yes,resizable=no';
             var ControlID = '<%= txtRoleCode.ClientID %>';
-            var a = window.open('../Lov/LovRole.aspx?f=' + ControlID + '', 'LOV', PopProp);
+            var a = window.open('../Lov/LovRole.aspx?ControlID=' + ControlID , '', PopProp);
             a.focus();
             return false;
         }

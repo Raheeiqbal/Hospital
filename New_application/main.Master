@@ -96,6 +96,7 @@
             <script src="<%=ResolveUrl("~/Scripts/jquery-3.4.1.min.js") %>"></script>
             <script>
                 $('document').ready(function () {
+                    debugger;
                     $('li.nav-item a').click(function (e) {
                         debugger
                         var target = e.target.dataset.bsTarget

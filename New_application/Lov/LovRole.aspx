@@ -2,17 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
-        //function ClosePop(controlID, Code, Desc, btnid) {
-        //    debugger;
-        //    window.opener.document.all(controlID).value = Code + '~' + Desc;
-        //    window.opener.document.all(controlID).focus;
-        //    if (btnid != "") { window.opener.document.all(btnid).click(); }
-        //    self.close();
-        //}
-
-        function ClosePop(controlID, cval) {
-            debugger;
-            window.opener.document.getElementById(controlID).value = cval;
+        function ClosePop(controlID, code , Desc) {
+            window.opener.document.getElementById(controlID).value = code + '~' + Desc;
             self.close();
             window.close();
         }
