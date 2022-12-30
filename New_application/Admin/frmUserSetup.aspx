@@ -102,7 +102,7 @@
                                     <asp:Label ID="lblRoleNa" runat="server" Text="Role Name"></asp:Label>
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
-                                    <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm  bg-secondary-light" ReadOnly="true"></asp:TextBox>
+                                    <asp:TextBox ID="txtRoleCode" runat="server" class="form-control input-sm  bg-secondary-light"></asp:TextBox>
                                     <span class="input-group-btn">
                                         <button class="form-control input-sm" id="btn_LovRole" onclick="return openLovRole('')" runat="server" style="height: 31px">
                                             <span class="fa fa-search" aria-hidden="true"></span>

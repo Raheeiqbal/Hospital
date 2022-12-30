@@ -30,7 +30,6 @@ namespace New_application.Admin
             {
                 rpt_data.DataSource = data;
                 rpt_data.DataBind();
-                Session["FormID"] = data.Rows[0]["FormID"].ToString();
             }
             ExecuteProc("Code", "", "", "");
             if (data.Rows.Count > 0)
@@ -39,6 +38,7 @@ namespace New_application.Admin
             }
         }
         void ExecuteProc(string pAction, string pFormID, string pRoleCode, string pRoleName)
+        
         {
             string XMLR = "<Role>";
             if (Session["Code"] != null)
@@ -57,7 +57,7 @@ namespace New_application.Admin
                 {
                     XMLD += "<RoleCode>" + Session["Code"].ToString() + "</RoleCode>";
                 }
-                XMLD += "<FormID>" + Request.QueryString["f"] + "</FormID>";
+                XMLD += "<FormID>" + ((Label)rpt_data.Items[i].FindControl("FormID")).Text + "</FormID>";
                 XMLD += "<FormName>" + ((Label)rpt_data.Items[i].FindControl("Formname")).Text + "</FormName>";
                 XMLD += "<View>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_VIEW")).Checked ? "1" : "0") + "</View>";
                 XMLD += "<Insert>" + (((CheckBox)rpt_data.Items[i].FindControl("CHK_INS")).Checked ? "1" : "0") + "</Insert>";

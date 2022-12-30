@@ -58,7 +58,8 @@ namespace New_application.Admin
             XMLF += "<FullName>" + txtFullname.Text + "</FullName>";
             XMLF += "<DepartName>" + txtDepNa.Text + "</DepartName>";
             XMLF += "<Designation>" + txtDesig.Text + "</Designation>";
-            XMLF += "<RoleCode>" + txtRoleCode.Text + "</RoleCode>";
+            //XMLF += "<RoleCode>" + txtRoleCode.Text + "</RoleCode>";
+            XMLF += "<RoleCode>" + (txtRoleCode.Text.Contains("~") ? txtRoleCode.Text.Split('~')[0] : "") + "</RoleCode>";
 
 
             XMLF += "</User>";
