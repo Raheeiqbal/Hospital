@@ -1,8 +1,10 @@
 ﻿using CRPL.Library.Oracle;
 using CRPL.Library.SQLServer;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +15,7 @@ namespace New_application
     public partial class Loginpage : System.Web.UI.Page
     {
         DataAccess obj = new DataAccess();
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +24,17 @@ namespace New_application
         {
             login();
         }
-
+        void executepro(string username, string password)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@P_userid",SqlDbType.VarChar,1000){ Value = username},
+                new SqlParameter("@P_password",SqlDbType.VarChar,1000){ Value = password},
+            };
+            obj.ExecuteSP("sp_Userlogin", para, out dt);
+            Session["role_code"] = dt.Rows[0]["role_code"].ToString();
+            Session["user_name"] = dt.Rows[0]["user_id"].ToString();
+        }
         private void login()
         {
             try
@@ -30,11 +43,10 @@ namespace New_application
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('invalid userid & password')", true);
                 }
-                DataTable dt = obj.sqladapter("sp_Userlogin", txtUsername.Text, txtPassword.Text);
+                executepro(txtUsername.Text, txtPassword.Text);
                 if (dt.Rows.Count > 0)
                 {
-                    Response.Redirect("./pages/frmDashboard.aspx");
-                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('login success')", true);
+                    Response.Redirect("~/pages/frmDashboard.aspx", false);
                 }
                 else
                 {
