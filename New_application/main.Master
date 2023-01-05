@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="row g-3 needs-validation" novalidate>
         <div id="wrapper">
             <header id="header" class="header fixed-top d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-between">
@@ -53,14 +53,15 @@
                         <li class="nav-item dropdown pe-3">
                             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                                 <img src="\profile.png" <%--alt="Profile" --%>class="rounded-circle">
-                                <span class="d-none d-md-block dropdown-toggle ps-2">USER NAME</span>
+                                <span id="title_name" class="d-none d-md-block dropdown-toggle ps-2" runat="server">USER NAME</span>
                             </a>
                             <!-- End Profile Iamge Icon -->
 
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                 <li class="dropdown-header">
-                                    <h6>RICAAZ</h6>
-                                    <span>Web Designer & Developer</span>
+                                    <h6 id="pro_name" runat="server">USER NAME</h6>
+                                    <%--<asp:Label ID="Label1" text="" runat="server" Text="Label"></asp:Label>--%>
+                                    <span id="pro_dec" runat="server">Web Designer & Developer</span>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">

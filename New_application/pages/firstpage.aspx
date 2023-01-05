@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtFstname" runat="server" class="form-control" placeholder="Your Name" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtLstname" placeholder="Last Name" runat="server" class="form-control" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtAddress" runat="server" class="form-control" placeholder="Address" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtZipCode" runat="server" class="form-control" placeholder="Zip Code" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                     <asp:DropDownList ID="ddlCity" class="form-select" runat="server" required="submit">
                                         <asp:ListItem Selected="False">---Select City---</asp:ListItem>
                                     </asp:DropDownList>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -81,7 +81,7 @@
                                     <asp:DropDownList ID="ddlCon" class="form-select" runat="server" required="submit">
                                         <asp:ListItem Selected="False">---Select Country---</asp:ListItem>
                                     </asp:DropDownList>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtPhoneNum" runat="server" class="form-control" placeholder="Phone Number" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
 
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtCNIC" runat="server" class="form-control" placeholder="CNIC" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                     <asp:DropDownList ID="ddlGender" class="form-select" runat="server" required="submit">
                                         <asp:ListItem Selected="False">---Select Gender---</asp:ListItem>
                                     </asp:DropDownList>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
 
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtRegID" runat="server" class="form-control" ReadOnly="true" placeholder="Registration ID" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtDate" runat="server" class="form-control" TextMode="Date" required="submit"></asp:TextBox>
-                                    <div class="invalid-tooltip">select</div>
+                                     
                                 </div>
                             </div>
                         </div>

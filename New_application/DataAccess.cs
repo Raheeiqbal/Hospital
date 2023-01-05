@@ -26,7 +26,14 @@ namespace New_application
             try
             {
                 adp.Fill(DT_Out);
-                sReturn = "00";
+                if (DT_Out.Rows.Count > 0)
+                {
+                    sReturn = "00";
+                }
+                else
+                {
+                    sReturn = "1";
+                }
             }
             catch (Exception ex)
             {
@@ -41,37 +48,18 @@ namespace New_application
             return sReturn;
 
         }
-
-
-        public DataTable sqladapter(string SP, string username, string password, string action, string rolecode, string parent)
-        {
-            SqlDataAdapter adp = new SqlDataAdapter(SP, connection());
-            adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-            adp.SelectCommand.Parameters.Add("@P_userid", SqlDbType.VarChar, 100).Value = username;
-            adp.SelectCommand.Parameters.Add("@P_password", SqlDbType.VarChar, 100).Value = password;
-            adp.SelectCommand.Parameters.Add("@P_ValidUser", SqlDbType.VarChar, 100).Value = "";
-            adp.SelectCommand.Parameters.Add("@P_UserSession", SqlDbType.VarChar, 100).Value = "";
-            adp.SelectCommand.Parameters.Add("@P_Action", SqlDbType.VarChar, 100).Value = action;
-            adp.Fill(dt);
-            dt.Dispose();
-            return dt;
-        }
-        //public DataTable oracleadapter(string SP, string username, string password)
+        //public DataTable sqladapter(string SP, string username, string password, string action, string rolecode, string parent)
         //{
-        //    OracleDataAdapter adp = new OracleDataAdapter(SP, connection());
+        //    SqlDataAdapter adp = new SqlDataAdapter(SP, connection());
         //    adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-        //    adp.SelectCommand.Parameters.Add("P_userid", OracleType.VarChar, 100).Value = username;
-        //    adp.SelectCommand.Parameters.Add("P_password", OracleType.VarChar, 100).Value = password;
-        //    adp.SelectCommand.Parameters.Add("P_DataSet", OracleType.Cursor).Direction = System.Data.ParameterDirection.Output;
+        //    adp.SelectCommand.Parameters.Add("@P_userid", SqlDbType.VarChar, 100).Value = username;
+        //    adp.SelectCommand.Parameters.Add("@P_password", SqlDbType.VarChar, 100).Value = password;
+        //    adp.SelectCommand.Parameters.Add("@P_ValidUser", SqlDbType.VarChar, 100).Value = "";
+        //    adp.SelectCommand.Parameters.Add("@P_UserSession", SqlDbType.VarChar, 100).Value = "";
+        //    adp.SelectCommand.Parameters.Add("@P_Action", SqlDbType.VarChar, 100).Value = action;
         //    adp.Fill(dt);
         //    dt.Dispose();
         //    return dt;
         //}
-
-        public virtual void proce(string StoredProcedure)
-        {
-
-        }
-
     }
 }

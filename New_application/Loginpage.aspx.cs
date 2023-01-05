@@ -18,13 +18,16 @@ namespace New_application
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             login();
         }
-        void executepro(string username, string password)
+        DataTable executepro(string username, string password)
         {
             SqlParameter[] para = new SqlParameter[]
             {
@@ -32,8 +35,15 @@ namespace New_application
                 new SqlParameter("@P_password",SqlDbType.VarChar,1000){ Value = password},
             };
             obj.ExecuteSP("sp_Userlogin", para, out dt);
-            Session["role_code"] = dt.Rows[0]["role_code"].ToString();
-            Session["user_name"] = dt.Rows[0]["user_id"].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                Session["role_code"] = dt.Rows[0]["role_code"].ToString();
+                Session["user_name"] = dt.Rows[0]["user_id"].ToString();
+                Session["Pro_name"] = dt.Rows[0]["Full_name"].ToString();
+                Session["Pro_decs"] = dt.Rows[0]["Designation"].ToString();
+
+            }
+            return dt;
         }
         private void login()
         {
@@ -43,14 +53,17 @@ namespace New_application
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('invalid userid & password')", true);
                 }
-                executepro(txtUsername.Text, txtPassword.Text);
-                if (dt.Rows.Count > 0)
-                {
-                    Response.Redirect("~/pages/frmDashboard.aspx", false);
-                }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('wrong userid & password')", true);
+                    DataTable data = executepro(txtUsername.Text, txtPassword.Text);
+                    if (data.Rows.Count > 0)
+                    {
+                        Response.Redirect("~/pages/frmDashboard.aspx", false);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('wrong userid & password')", true);
+                    }
                 }
             }
             catch (Exception ex)

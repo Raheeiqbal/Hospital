@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="input-group input-group-sm has-validation">
                                         <asp:TextBox ID="txtrolcode" runat="server" class="form-control bg-secondary-light" placeholder="Role Code" ReadOnly="true" AutoPostBack="false"></asp:TextBox>
-                                        <div class="invalid-tooltip">select</div>
+                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="input-group input-group-sm has-validation">
                                         <asp:TextBox ID="txtrolName" placeholder="Role Name" runat="server" class="form-control" required="submit"></asp:TextBox>
-                                        <div class="invalid-tooltip">select</div>
+                                         
                                     </div>
                                 </div>
                             </div>

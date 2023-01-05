@@ -16,9 +16,11 @@ namespace New_application.Admin
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            fill();
+            if (!IsPostBack)
+            {
+                fill();
+            }
         }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             ExecutePro("IN");
@@ -27,10 +29,9 @@ namespace New_application.Admin
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Successfully Inserted')", true);
             }
         }
-
         protected void btnReset_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Admin/frmUserSetup.aspx");
         }
         void fill()
         {
@@ -45,7 +46,6 @@ namespace New_application.Admin
             ddlStatus.DataValueField = "ID";
             ddlStatus.DataBind();
         }
-
         void ExecutePro(string sAction)
         {
             string XMLF = "<User>";
@@ -58,24 +58,16 @@ namespace New_application.Admin
             XMLF += "<FullName>" + txtFullname.Text + "</FullName>";
             XMLF += "<DepartName>" + txtDepNa.Text + "</DepartName>";
             XMLF += "<Designation>" + txtDesig.Text + "</Designation>";
-            //XMLF += "<RoleCode>" + txtRoleCode.Text + "</RoleCode>";
             XMLF += "<RoleCode>" + (txtRoleCode.Text.Contains("~") ? txtRoleCode.Text.Split('~')[0] : "") + "</RoleCode>";
-
-
             XMLF += "</User>";
-
-
             SqlParameter[] para = new SqlParameter[]
             {
             new SqlParameter("@P_Action",SqlDbType.NVarChar,1000){Value = sAction},
-            new SqlParameter("@P_User", SqlDbType.NVarChar,1000){Value = ""},
+            new SqlParameter("@P_User", SqlDbType.NVarChar,1000){Value = Session["user_name"]},
             new SqlParameter("P_FormID",SqlDbType.NVarChar,1000) { Value = Request.QueryString["f"] },
             new SqlParameter("@P_XMLData",SqlDbType.VarChar,2000){Value = XMLF},
             };
-
             ViewState["msg"] = obj.ExecuteSP("sp_Users", para, out dt);
         }
-
-
     }
 }
