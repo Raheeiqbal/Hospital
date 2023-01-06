@@ -78,7 +78,25 @@
                 </nav>
             </header>
             <aside id="sidebar" class="sidebar">
-                <ul class="sidebar-nav" id="App_Menu" runat="server">
+                <ul class="sidebar-nav" id="sidebsr-nav">
+                    <asp:Repeater ID="rpt_menu" runat="server">
+                        <ItemTemplate>
+                            <li class="nav-item">
+                                <a class="nav-link collapsed" data-bs-target="#ul<%# Eval("Formid") %>" data-bs-toggle="collapse" href='#' aria-expanded="false">
+                                    <i class="<%# Eval("Icon") %>"></i><span><%# Eval("Formname") %></span> <i class="bi bi-chevron-down ms-auto"></i>
+                                </a>
+                                <ul id="#ul<%# Eval("Formid") %>" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                                    <asp:Repeater ID="rpt_child" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                <a href="<%# Eval("pageurl") %>"><i class="bi bi-circle"></i><span><%# Eval("Formname") %></span></a>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </aside>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -93,13 +111,12 @@
             <script src="<%=ResolveUrl("~/assets/vendor/tinymce/tinymce.min.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/vendor/php-email-form/validate.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/js/main.js") %>"></script>
-            <script src="<%=ResolveUrl("~/Scripts/jquery-3.4.1.js") %>"></script>
             <script src="<%=ResolveUrl("~/Scripts/jquery-3.4.1.min.js") %>"></script>
-            <script>
+
+
+            <%-- <script>
                 $('document').ready(function () {
-                    debugger;
-                    $('li.nav-item a').click(function (e) {
-                        debugger
+                    $('li.nav-item a').click(function (e) { 
                         var target = e.target.dataset.bsTarget
                         if (document.getElementById(target).classList[2] == 'show') {
                             document.getElementById(target).classList.remove('show')
@@ -110,7 +127,7 @@
                         }
                     });
                 })
-            </script>
+            </script>--%>
         </div>
     </form>
 </body>

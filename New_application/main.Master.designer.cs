@@ -51,13 +51,13 @@ namespace New_application
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pro_dec;
 
         /// <summary>
-        /// App_Menu control.
+        /// rpt_menu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl App_Menu;
+        protected global::System.Web.UI.WebControls.Repeater rpt_menu;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

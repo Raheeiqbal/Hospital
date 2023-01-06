@@ -18,7 +18,10 @@ namespace New_application
         DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GenMenu();
+            if (!IsPostBack)
+            {
+                bindsidebar();
+            }
         }
         DataTable executepro(string Action, string parentID)
         {
@@ -31,35 +34,25 @@ namespace New_application
             string MSG = obj.ExecuteSP("sp_Permission", para, out dt);
             return dt;
         }
-        void GenMenu()
+
+        void bindsidebar()
         {
-            try
+            DataTable Node = executepro("node", "");
+            Node.Dispose();
+            rpt_menu.DataSource = Node;
+            rpt_menu.DataBind();
+            for (int i = 0; i < rpt_menu.Items.Count; i++)
             {
-                DataTable parent = executepro("node", "");
-                string sMenuMarkup = "";
-                for (int x = 0; x < parent.Rows.Count; x++)
-                {
-                    if (parent.Rows.Count > 0)
-                    {
-                        sMenuMarkup += "<li class='nav-item'> <a class='nav-link collapsed' href='#' data-bs-toggle='collapse' data-bs-target='#" + parent.Rows[x]["ParentID"].ToString() + x.ToString() + "' aria-controls='#" + parent.Rows[x]["ParentID"].ToString() + x.ToString() + "'> <i class='" + parent.Rows[x]["Icon"].ToString() + "'></i>" + parent.Rows[x]["Formname"].ToString() + "<i class='bi bi-chevron-down ms-auto'></i></a>";
-                        sMenuMarkup += "<ul id='#" + parent.Rows[x]["ParentID"].ToString() + x.ToString() + "' class='nav-content collapse' data-parent='#" + parent.Rows[x]["ParentID"].ToString() + x.ToString() + "'>";
-                        DataTable child = executepro("child", parent.Rows[x]["FormID"].ToString());
-                        for (int y = 0; y < child.Rows.Count; y++)
-                        {
-                            sMenuMarkup += "<li><a class='collapse-item' target='I1' href='" + child.Rows[y]["PageUrl"].ToString() + "?f=" + child.Rows[y]["FormID"].ToString() + "&s=" + "'><i class='bi bi-circle'></i><span>" + child.Rows[y]["Formname"].ToString() + "</span></a></li>";
-                        }
-                        sMenuMarkup += "</ul></li>";
-                    }
-                }
-                App_Menu.InnerHtml = HttpUtility.HtmlDecode(sMenuMarkup);
-                pro_name.InnerText = Session["pro_name"].ToString();
-                title_name.InnerText = Session["pro_name"].ToString();
-                pro_dec.InnerText = Session["pro_decs"].ToString();
+                DataTable child = executepro("child", Node.Rows[i]["FormID"].ToString());
+                child.Dispose();
+
+                Repeater obj_rpt_fom = (Repeater)rpt_menu.Items[i].FindControl("rpt_child");
+                obj_rpt_fom.DataSource = child;
+                obj_rpt_fom.DataBind();
             }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('" + ex + "')", true);
-            }
+            pro_name.InnerText = Session["pro_name"].ToString();
+            title_name.InnerText = Session["pro_name"].ToString();
+            pro_dec.InnerText = Session["pro_decs"].ToString();
         }
 
     }
