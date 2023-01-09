@@ -98,6 +98,33 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
+
+                <%--  <nav class="pcoded-navbar ">
+                    <div class="navbar-wrapper" id="sidebsr-nav">
+                        <div class="navbar-content scroll-div">
+                            <ul class="nav pcoded-inner-navbar">
+                                <asp:Repeater ID="rpt_menu" runat="server">
+                                    <ItemTemplate>
+                                        <li class="nav-item pcoded-hasmenu">
+                                            <a class="nav-link collapsed" data-bs-target="#ul<%# Eval("Formid") %>" data-bs-toggle="collapse" href='#' aria-expanded="true">
+                                                <i class="<%# Eval("Icon") %>"></i><span><%# Eval("Formname") %></span> <i class="bi bi-chevron-down ms-auto"></i>
+                                            </a>
+                                            <ul id="#ul<%# Eval("Formid") %>" class="pcoded-submenu" data-bs-parent="#sidebar-nav" style="">
+                                                <asp:Repeater ID="rpt_child" runat="server">
+                                                    <ItemTemplate>
+                                                        <li>
+                                                            <a href="<%# Eval("pageurl") %>" class="nav-link"><span><%# Eval("Formname") %></span></a>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </ul>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>--%>
             </aside>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -113,10 +140,14 @@
             <script src="<%=ResolveUrl("~/assets/js/main.js") %>"></script>
             <script src="<%=ResolveUrl("~/Scripts/jquery-3.4.1.min.js") %>"></script>
 
-
-            <%-- <script>
+            <%--<script src="<%= ResolveUrl("~/assets/js/bootstrap.min.js")%>"></script>--%>
+            <%--<script src="<%= ResolveUrl("~/assets/js/vendor-all.min.js")%>"></script>--%>
+            <script src="<%= ResolveUrl("~/assets/js/pcoded.min.js")%>"></script>
+            <script>
+                debugger;
                 $('document').ready(function () {
-                    $('li.nav-item a').click(function (e) { 
+                    debugger;
+                    $('li.nav-item a').click(function (e) {
                         var target = e.target.dataset.bsTarget
                         if (document.getElementById(target).classList[2] == 'show') {
                             document.getElementById(target).classList.remove('show')
@@ -127,10 +158,9 @@
                         }
                     });
                 })
-            </script>--%>
+            </script>
+
         </div>
     </form>
 </body>
-
-
 </html>

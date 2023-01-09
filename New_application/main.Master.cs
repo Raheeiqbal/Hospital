@@ -50,9 +50,9 @@ namespace New_application
                 obj_rpt_fom.DataSource = child;
                 obj_rpt_fom.DataBind();
             }
-            pro_name.InnerText = Session["pro_name"].ToString();
-            title_name.InnerText = Session["pro_name"].ToString();
-            pro_dec.InnerText = Session["pro_decs"].ToString();
+            //pro_name.InnerText = Session["pro_name"].ToString();
+            //title_name.InnerText = Session["pro_name"].ToString();
+            //pro_dec.InnerText = Session["pro_decs"].ToString();
         }
 
     }

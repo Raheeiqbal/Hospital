@@ -24,7 +24,7 @@
                         <div class="form-group input-group">
                             <asp:TextBox ID="txtSrch" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
                             <span class="input-group-btn">
-                                <asp:Button ID="btnSearch" runat="server" class="btn btn-default" Text="Search" />
+                                <asp:Button ID="btnSearch" runat="server" class="btn btn-primary" Text="Search" />
                             </span>
                         </div>
                     </div>

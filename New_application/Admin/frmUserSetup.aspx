@@ -6,7 +6,7 @@
             debugger;
             var PopProp = 'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,left=280,top=130,height=530, width= 900 ,menubar=no,location=no,toolbar=no,scrollbars=yes,resizable=no';
             var ControlID = '<%= txtRoleCode.ClientID %>';
-            var a = window.open('../Lov/LovRole.aspx?ControlID=' + ControlID , '', PopProp);
+            var a = window.open('../Lov/LovRole.aspx?ControlID=' + ControlID, '', PopProp);
             a.focus();
             return false;
         }
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtDesig" runat="server" class="form-control" placeholder="Designation"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtConNum" placeholder="Contact Number" runat="server" class="form-control" required="submit"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Email Address" required="submit"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtCNIC" runat="server" class="form-control" placeholder="CNIC" required="submit"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtpassword" runat="server" class="form-control" placeholder="Password" required="submit"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="input-group input-group-sm has-validation">
                                     <asp:TextBox ID="txtConpass" placeholder="Confirm Password" runat="server" class="form-control" required="submit"></asp:TextBox>
-                                     
+
                                 </div>
                             </div>
                         </div>
