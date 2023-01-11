@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace New_application.Admin
 {
@@ -19,6 +20,7 @@ namespace New_application.Admin
             if (!IsPostBack)
             {
                 fill();
+
             }
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -45,6 +47,13 @@ namespace New_application.Admin
             ddlStatus.DataTextField = "Status";
             ddlStatus.DataValueField = "ID";
             ddlStatus.DataBind();
+
+            ExecutePro("getuser");
+            if (dt.Rows.Count > 0)
+            {
+                rpt_data.DataSource = dt;
+                rpt_data.DataBind();
+            }
         }
         void ExecutePro(string sAction)
         {
@@ -68,6 +77,17 @@ namespace New_application.Admin
             new SqlParameter("@P_XMLData",SqlDbType.VarChar,2000){Value = XMLF},
             };
             ViewState["msg"] = obj.ExecuteSP("sp_Users", para, out dt);
+        }
+
+        protected void btnShowPopup_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        protected void button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
