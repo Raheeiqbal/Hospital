@@ -15,13 +15,13 @@ namespace New_application.Admin
     {
 
         /// <summary>
-        /// formview1 control.
+        /// button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formview1;
+        protected global::System.Web.UI.WebControls.Button button;
 
         /// <summary>
         /// btnSubmit control.
@@ -85,5 +85,14 @@ namespace New_application.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpt_data;
+
+        /// <summary>
+        /// rpt_roleDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_roleDetail;
     }
 }

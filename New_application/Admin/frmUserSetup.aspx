@@ -28,9 +28,9 @@
                         </div>
                     </div>
                     <hr />
-                    <div class="modal fade" id="largeModal" tabindex="-1" data-bs-backdrop="false">
+                    <div class="modal fade" id="largeModal" tabindex="-1">
                         <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
+                            <div class="modal-content border border-secondary">
                                 <div class="modal-header">
                                     <h5 class="modal-title">User Setup</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -38,8 +38,8 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <asp:Button ID="Button1" class="btn btn-primary" type="submit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
-                                            <asp:Button ID="Button2" class="btn btn-primary" Text="Reset" runat="server" OnClick="btnReset_Click" OnClientClick="return confirm('Do you want Reset')" />
+                                            <asp:Button ID="btnSubmit" class="btn btn-primary" type="submit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
+                                            <asp:Button ID="btnReset" class="btn btn-primary" Text="Reset" runat="server" OnClick="btnReset_Click" OnClientClick="return confirm('Do you want Reset')" />
 
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                     <div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblUSRcode" runat="server" Text="User Code"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblLGNid" runat="server" Text="Login ID"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblFullNa" runat="server" Text="Full Name"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -92,7 +92,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblConNum" runat="server" Text="Contact Number"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblEmaAdd" runat="server" Text="Email Address"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -112,7 +112,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblRoleNa" runat="server" Text="Role Name"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -127,7 +127,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblCNIC" runat="server" Text="CNIC"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -136,7 +136,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="Label2" runat="server" Text="Status"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -146,7 +146,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblPass" runat="server" Text="Password"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -155,7 +155,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-label text-danger">
+                                                <div class="form-label  ">
                                                     <asp:Label ID="lblConPass" runat="server" Text="Password"></asp:Label>
                                                 </div>
                                                 <div class="input-group input-group-sm has-validation">
@@ -166,11 +166,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <%--<div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OKAY</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>--%>
                             </div>
                         </div>
                     </div>

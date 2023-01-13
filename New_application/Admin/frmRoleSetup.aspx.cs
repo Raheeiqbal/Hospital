@@ -36,6 +36,13 @@ namespace New_application.Admin
             {
                 txtrolcode.Text = data.Rows[0][0].ToString(); Session["Code"] = data.Rows[0][0].ToString();
             }
+
+            ExecuteProc("GD","","","");
+            if (data.Rows.Count > 0)
+            {
+               rpt_roleDetail.DataSource = data;
+                rpt_roleDetail.DataBind();
+            }
         }
         void ExecuteProc(string pAction, string pFormID, string pRoleCode, string pRoleName)
         
@@ -124,6 +131,11 @@ namespace New_application.Admin
         protected void btnReset_Click(object sender, EventArgs e)
         {
             Response.Redirect("\\Admin/frmRoleSetup.aspx");
+        }
+
+        protected void button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

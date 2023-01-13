@@ -129,6 +129,13 @@
     <Content Include="Admin\frmUserSetup.aspx" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\style2.css" />
+    <Content Include="assets\datatables\datatables-demo.js" />
+    <Content Include="assets\datatables\dataTables.bootstrap4.css" />
+    <Content Include="assets\datatables\dataTables.bootstrap4.js" />
+    <Content Include="assets\datatables\dataTables.bootstrap4.min.css" />
+    <Content Include="assets\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="assets\datatables\jquery.dataTables.js" />
+    <Content Include="assets\datatables\jquery.dataTables.min.js" />
     <Content Include="assets\dist\css\icons\crypto-icons\cryptocoins-colors.css" />
     <Content Include="assets\dist\css\icons\crypto-icons\cryptocoins.css" />
     <Content Include="assets\dist\css\icons\flag-icon-css\flag-icon.min.css" />
