@@ -22,7 +22,10 @@ namespace New_application
             DataTable DT_Out = new DataTable();
             SqlDataAdapter adp = new SqlDataAdapter(sSPName, connection());
             adp.SelectCommand.CommandType = CommandType.StoredProcedure;
-            adp.SelectCommand.Parameters.AddRange(SrcPrams);
+            if(SrcPrams != null)
+            {
+                adp.SelectCommand.Parameters.AddRange(SrcPrams);
+            }
             try
             {
                 adp.Fill(DT_Out);
@@ -45,6 +48,38 @@ namespace New_application
                 adp.Dispose();
             }
             Res_DT = DT_Out;
+            return sReturn;
+
+        }
+        public string ExecuteSP(string sSPName, SqlParameter[] SrcPrams, out DataSet Res_DT)
+        {
+            string sReturn = "";
+            DataSet DT_OutSet = new DataSet();
+            SqlDataAdapter adp = new SqlDataAdapter(sSPName, connection());
+            adp.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adp.SelectCommand.Parameters.AddRange(SrcPrams);
+            try
+            {
+                adp.Fill(DT_OutSet);
+                if (DT_OutSet.Tables[0].Rows.Count > 0)
+                {
+                    sReturn = "00";
+                }
+                else
+                {
+                    sReturn = "1";
+                }
+            }
+            catch (Exception ex)
+            {
+                sReturn = "-1;" + ex.Message;
+            }
+            finally
+            {
+                DT_OutSet.Dispose();
+                adp.Dispose();
+            }
+            Res_DT = DT_OutSet;
             return sReturn;
 
         }

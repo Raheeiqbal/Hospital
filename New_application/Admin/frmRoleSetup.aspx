@@ -1,19 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.Master" AutoEventWireup="true" CodeBehind="frmRoleSetup.aspx.cs" Inherits="New_application.Admin.frmRoleSetup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script>
-        debugger;
-        $('document').ready(function () {
-            $(".selectAll").on("click", function (e) {
-                debugger;
-                if ($(this).is(":checked")) {
-                    rpt_data.rows().select();
-                } else {
-                    rpt_data.rows().deselect();
-                }
-            });
-        })
-    </script>
     <div class="card">
         <main id="main">
             <%--<formview id="formview1" runat="server">--%>
@@ -76,7 +63,7 @@
                                                                 <tr>
                                                                     <th>Form Name</th>
                                                                     <th class="text-center">
-                                                                        <asp:CheckBox ID="CHK_VIEW_All"  Text=" View" runat="server" OnCheckedChanged="CHK_All_CheckedChanged" /></th>
+                                                                        <asp:CheckBox ID="CHK_VIEW_All" AutoPostBack="true"   Text=" View" runat="server" OnCheckedChanged="CHK_All_CheckedChanged" /></th>
                                                                     <th class="text-center">
                                                                         <asp:CheckBox ID="CHK_INS_All" AutoPostBack="true" Text=" Insert" runat="server" OnCheckedChanged="CHK_All_CheckedChanged" /></th>
                                                                     <th class="text-center">
@@ -117,8 +104,8 @@
                             <HeaderTemplate>
                                 <thead>
                                     <tr>
-                                        <th>User Code</th>
-                                        <th>User Name</th>
+                                        <th>Role Code</th>
+                                        <th>Role Name</th>
                                         <th>Select</th>
                                     </tr>
                                 </thead>

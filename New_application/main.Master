@@ -90,7 +90,7 @@
                                     <asp:Repeater ID="rpt_child" runat="server">
                                         <ItemTemplate>
                                             <li>
-                                                <a href="<%# Eval("pageurl") %>"><i class="bi bi-circle"></i><span><%# Eval("Formname") %></span></a>
+                                                <a href="<%# Eval("pageurl") %>?f=<%# Eval("FormID") %>&s"><i class="bi bi-circle"></i><span><%# Eval("Formname") %></span></a>
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -99,7 +99,6 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
-
                 <%--  <nav class="pcoded-navbar ">
                     <div class="navbar-wrapper" id="sidebsr-nav">
                         <div class="navbar-content scroll-div">
@@ -145,17 +144,8 @@
             <script src="<%=ResolveUrl("~/assets/datatables/jquery.dataTables.min.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/datatables/dataTables.bootstrap4.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/datatables/datatables-demo.js") %>"></script>
-
-            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
-
-
-
-            
-
-
-
-
-            <scril/pt src="<%= ResolveUrl("~/assets/js/pcoded.min.js")%>"></scril/pt>
+            <%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>--%>
+            <script src="<%= ResolveUrl("~/assets/js/pcoded.min.js")%>"></script>
             <script>
                 debugger;
                 $('document').ready(function () {
