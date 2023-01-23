@@ -16,10 +16,10 @@
                             <asp:Button ID="btnReset" class="btn btn-primary" runat="server" Text="Reset" OnClientClick="return confirm('Do you want Reset?')" />
                         </div>
                     </div>
-                    <hr />
                 </div>
+                <hr />
 
-                <%-- <div>
+                <div class="col-md-12">
                     <div class="row">
                         <div class="form-group">
                             <label>Wild Card Search</label>
@@ -32,15 +32,15 @@
                         </div>
                     </div>
                     <hr />
-                    <div class="row">
-                        <table style="width: 100%;">
+                    <div class="col-md-12">
+                        <table>
                             <tr>
-                                <td class="TDLeft" style="width: 77%">
+                                <td class="col-md-12">
                                     <table>
                                         <tr>
                                             <td>Page Size</td>
                                             <td>
-                                                <asp:DropDownList ID="ddlPageSize" Width="80px" class="form-control" runat="server" AutoPostBack="true">
+                                                <asp:DropDownList ID="ddlPageSize" Width="80px" class="form-select" runat="server" AutoPostBack="true">
                                                     <asp:ListItem Value="20">20</asp:ListItem>
                                                     <asp:ListItem Value="50">50</asp:ListItem>
                                                     <asp:ListItem Value="100">100</asp:ListItem>
@@ -49,18 +49,18 @@
                                         </tr>
                                     </table>
                                 </td>
-                                <td class="TDLeft">
+                                <td class="">
                                     <table>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="ddlExport" Width="180px" class="form-control" runat="server">
+                                                <asp:DropDownList ID="ddlExport" Width="180px" class="form-select" runat="server">
                                                     <asp:ListItem Value="EXL">Export To Excel</asp:ListItem>
                                                     <asp:ListItem Value="DOC">Export To Word</asp:ListItem>
                                                     <asp:ListItem Value="PDF">Export To PDF</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
-                                                <asp:Button ID="btnExport" runat="server" class="btn btn-default" Text="Export" />
+                                                <button class="btn btn-primary"><span class="bi bi-download" text="export" aria-hidden="true"></span></button>
                                             </td>
                                         </tr>
                                     </table>
@@ -69,21 +69,16 @@
                         </table>
                     </div>
                     <div class="row">
-                        <asp:GridView ID="GrdList" runat="server" CssClass="form-control" AllowSorting="true" OnSorting="GrdList_Sorting" DataKeyNames="rowid" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True"
+                        <%-- <asp:GridView ID="GrdList" runat="server" class="table table-bordered table table-striped table table-hover table-responsive" AllowSorting="true" OnSorting="GrdList_Sorting" DataKeyNames="rowid" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True"
                             AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GrdList_PageIndexChanging1" OnRowDataBound="GrdList_RowDataBound" OnSelectedIndexChanged="GrdList_SelectedIndexChanged">
                             <AlternatingRowStyle CssClass="alt" />
                             <PagerStyle CssClass="pgr" />
-                        </asp:GridView>
+                        </asp:GridView>--%>
+                        <div class="row">
+                            <asp:GridView ID="GrdList" runat="server" class="table table-bordered table table-striped table table-hover table-responsive" Width="100%" CellSpacing="0"></asp:GridView>
+                        </div>
                     </div>
-                </div>--%>
-                <h5 class="card-title">abcd</h5>
-                <table class="table table-bordered table table-striped table table-hover" id="dataTable" width="100%" cellspacing="0">
-                     <asp:GridView ID="GrdList" runat="server" CssClass="" AllowSorting="true" OnSorting="GrdList_Sorting" DataKeyNames="rowid" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True"
-                            AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GrdList_PageIndexChanging" OnRowDataBound="GrdList_RowDataBound" OnSelectedIndexChanged="GrdList_SelectedIndexChanged">
-                            <AlternatingRowStyle CssClass="alt" />
-                            <PagerStyle CssClass="pgr" />
-                        </asp:GridView>
-                </table>
+                </div>
             </div>
         </main>
     </div>

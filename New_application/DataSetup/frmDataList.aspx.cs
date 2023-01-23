@@ -13,13 +13,14 @@ namespace New_application.DataSetup
     {
         DataAccess obj = new DataAccess();
         DataSet data = new DataSet();
+        DataTable dt = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            setpage("1002");
+            setpage();
         }
 
-        void setpage(string FormID)
+        void setpage()
         {
             if (Session["pro_name"] == null) { return; }
             GrdList.Columns.Clear();
@@ -29,37 +30,85 @@ namespace New_application.DataSetup
             string sFormID = (Request.QueryString["f"] != null ? Request.QueryString["f"].ToString() : "");
             SqlParameter[] para = new SqlParameter[]
             {
-                new SqlParameter("@P_FormID",SqlDbType.NVarChar, 1000) {Value =  FormID}
+
+                new SqlParameter("@P_FormID",SqlDbType.NVarChar, 1000) {Value =  sFormID}
+
             };
             string msg = obj.ExecuteSP("Sp_GetListData", para, out data);
+            data.Dispose();
             if (data.Tables[0].Rows.Count > 0 && data.Tables[1].Rows.Count > 0)
             {
                 string proname = (data.Tables[0].Rows[0]["procedure_name"].ToString());
-                SqlParameter[] innerPara = new SqlParameter[data.Tables[1].Rows.Count];
+                SqlParameter[] para2 = new SqlParameter[data.Tables[1].Rows.Count];
                 for (int i = 0; i < data.Tables[1].Rows.Count; i++)
                 {
 
                     if (data.Tables[1].Rows[i]["default_value"].ToString().ToLower().StartsWith("user"))
                     {
-                        innerPara[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), "");
+                        para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "" };
                     }
                     else if (data.Tables[1].Rows[i]["default_value"].ToString().ToUpper().StartsWith("ACT"))
                     {
-                        innerPara[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), "");
+                        para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "SO" };
                     }
                     //else if (data.Tables[1].Rows[i]["default_value"].ToString().ToLower().StartsWith("rolecode"))
                     //{
-                    //    innerPara[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), "") ;
+                    //    para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "" };
                     //}
                     //else if (data.Tables[1].Rows[i]["default_value"].ToString().ToLower().StartsWith("rolename"))
                     //{
-                    //    innerPara[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), "");
+                    //    para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "" };
                     //}
+                    else
+                    {
+                        para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = data.Tables[1].Rows[i]["default_value"] };
+                    }
 
                 }
-                DataTable mydata = new DataTable();
-                string txt = obj.ExecuteSP(proname, innerPara, out mydata);
+                obj.ExecuteSP(proname, para2, out dt);
+                data.Dispose();
+                string gridheader = data.Tables[0].Rows[0]["grid_header"].ToString();
+                string bindcolumn = data.Tables[0].Rows[0]["grid_bindcolumn"].ToString();
+                ViewState["page"] = data.Tables[0].Rows[0]["dml_formlink"].ToString();
+                ViewState["Form_ID"] = sFormID;
+                try
+                {
+
+
+                    if (gridheader != "" && bindcolumn != "")
+                    {
+                        string[] GDheader = gridheader.Split(',');
+                        string[] GDbindcolumn = bindcolumn.Split(',');
+
+                        if (GDheader.Length != GDbindcolumn.Length)
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "pop", "alert('Display header and detail column not matched')", true);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < GDheader.Length; i++)
+                            {
+                                BoundField bindData = new BoundField();
+                                bindData.DataField = GDbindcolumn[i];
+                                bindData.HeaderText = GDheader[i];
+                                //GrdList.Columns.Add(bindData);
+                            }
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                GrdList.DataSource = dt;
+                                GrdList.DataBind();
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
+
         }
 
         protected void GrdList_RowDataBound(object sender, GridViewRowEventArgs e)
