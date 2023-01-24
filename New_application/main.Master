@@ -38,7 +38,7 @@
         <div id="wrapper">
             <header id="header" class="header fixed-top d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-between">
-                    <a href="\pages/frmDashboard.aspx" class="logo d-flex align-items-center">
+                    <a href="Default.aspx" class="logo d-flex align-items-center">
                         <span class="d-none d-lg-block">Hospital Application</span>
                     </a>
                     <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -79,18 +79,20 @@
                 </nav>
             </header>
             <aside id="sidebar" class="sidebar">
-                <ul class="sidebar-nav" id="sidebsr-nav">
+                <ul class="sidebar-nav" id="sidebar-nav">
                     <asp:Repeater ID="rpt_menu" runat="server">
                         <ItemTemplate>
                             <li class="nav-item">
-                                <a class="nav-link collapsed" data-bs-target="#ul<%# Eval("Formid") %>" data-bs-toggle="collapse" href='#' aria-expanded="false">
+                                <a class="nav-link collapsed" data-bs-target="#ul<%# Eval("Formid") %>" data-bs-toggle="collapse" href='#'>
                                     <i class="<%# Eval("Icon") %>"></i><span><%# Eval("Formname") %></span> <i class="bi bi-chevron-down ms-auto"></i>
                                 </a>
-                                <ul id="#ul<%# Eval("Formid") %>" class="nav-content collapse" data-bs-parent="#sidebar-nav" style="">
+                                <ul id="ul<%# Eval("Formid") %>" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                                     <asp:Repeater ID="rpt_child" runat="server">
                                         <ItemTemplate>
                                             <li>
-                                                <a href="<%# Eval("pageurl") %>?f=<%# Eval("FormID") %>&s"><i class="bi bi-circle"></i><span><%# Eval("Formname") %></span></a>
+                                                <a target="I1" href="<%# Eval("pageurl") %>?f=<%# Eval("FormID") %>&s">
+                                                    <i class="bi bi-circle"></i><span><%# Eval("Formname") %></span>
+                                                </a>
                                             </li>
                                         </ItemTemplate>
                                     </asp:Repeater>
@@ -126,9 +128,16 @@
                     </div>
                 </nav>--%>
             </aside>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <div id="page-wrapper">
+                <!-- /.container-fluid -->
+                <div style="width: 100%; height: 100%; overflow-x: hidden; overflow-y: auto;">
+                    <iframe id="I1" name="I1" runat="server" frameborder="0" visible="true" seamless="seamless" style="width: 100%; height: 95vh;" enableviewstate="true" scrolling="yes" src="~/pages/frmDashboard.aspx"></iframe>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
 
+            <!------ Script ----->
             <script src="<%=ResolveUrl("~/assets/vendor/apexcharts/apexcharts.min.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/vendor/chart.js/chart.min.js") %>"></script>
@@ -144,9 +153,8 @@
             <script src="<%=ResolveUrl("~/assets/datatables/jquery.dataTables.min.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/datatables/dataTables.bootstrap4.js") %>"></script>
             <script src="<%=ResolveUrl("~/assets/datatables/datatables-demo.js") %>"></script>
-            <%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>--%>
             <script src="<%= ResolveUrl("~/assets/js/pcoded.min.js")%>"></script>
-            <script>
+            <%--<script>
                 debugger;
                 $('document').ready(function () {
                     debugger;
@@ -161,8 +169,7 @@
                         }
                     });
                 })
-            </script>
-
+            </script>--%>
         </div>
     </form>
 </body>

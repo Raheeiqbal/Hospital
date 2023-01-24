@@ -17,7 +17,17 @@ namespace New_application.DataSetup
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            setpage();
+            if (!IsPostBack)
+            {
+                Session["List_URl"] = Request.Url;
+                setpage();
+                if (ViewState["page"] != null && ViewState["page"].ToString() != "")
+                {
+                    btnAddN.PostBackUrl = ViewState["page"].ToString() + "?f=" + ViewState["Form_ID"].ToString() + "&s=";
+                    btnAddN.Visible = true;
+                }
+
+            }
         }
 
         void setpage()
@@ -51,14 +61,6 @@ namespace New_application.DataSetup
                     {
                         para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "SO" };
                     }
-                    //else if (data.Tables[1].Rows[i]["default_value"].ToString().ToLower().StartsWith("rolecode"))
-                    //{
-                    //    para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "" };
-                    //}
-                    //else if (data.Tables[1].Rows[i]["default_value"].ToString().ToLower().StartsWith("rolename"))
-                    //{
-                    //    para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = "" };
-                    //}
                     else
                     {
                         para2[i] = new SqlParameter(data.Tables[1].Rows[i]["sp_paraname"].ToString(), SqlDbType.NVarChar) { Value = data.Tables[1].Rows[i]["default_value"] };
