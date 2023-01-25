@@ -11,7 +11,19 @@ namespace New_application
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["pro_name"] == null)
+            {
+                Response.Redirect("~/404.html", true);
+                return;
+            }
+            //else
+            //{
+            //    if (!Request.Url.ToString().Contains("FrmDashboard.aspx") && !Request.Url.ToString().Contains("UserStatus.aspx"))
+            //    {
+            //        string[] splitURl = Request.Url.AbsoluteUri.Split('/');
 
+            //    }
+            //}
         }
     }
 }

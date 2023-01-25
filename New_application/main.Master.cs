@@ -34,7 +34,6 @@ namespace New_application
             string MSG = obj.ExecuteSP("sp_Permission", para, out dt);
             return dt;
         }
-
         void bindsidebar()
         {
             DataTable Node = executepro("node", "");
@@ -50,10 +49,12 @@ namespace New_application
                 obj_rpt_fom.DataSource = child;
                 obj_rpt_fom.DataBind();
             }
-            pro_name.InnerText = Session["pro_name"].ToString();
-            title_name.InnerText = Session["pro_name"].ToString();
-            pro_dec.InnerText = Session["pro_decs"].ToString();
+            if (Session["pro_name"] != null)
+            {
+                pro_name.InnerText = Session["pro_name"].ToString();
+                title_name.InnerText = Session["pro_name"].ToString();
+                pro_dec.InnerText = Session["pro_decs"].ToString();
+            }
         }
-
     }
 }

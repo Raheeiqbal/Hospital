@@ -35,7 +35,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
 
@@ -54,24 +53,7 @@
         <script src="<%=ResolveUrl("~/assets/datatables/jquery.dataTables.min.js") %>"></script>
         <script src="<%=ResolveUrl("~/assets/datatables/dataTables.bootstrap4.js") %>"></script>
         <script src="<%=ResolveUrl("~/assets/datatables/datatables-demo.js") %>"></script>
-        <%--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>--%>
         <script src="<%= ResolveUrl("~/assets/js/pcoded.min.js")%>"></script>
-        <script>
-            debugger;
-            $('document').ready(function () {
-                debugger;
-                $('li.nav-item a').click(function (e) {
-                    var target = e.target.dataset.bsTarget
-                    if (document.getElementById(target).classList[2] == 'show') {
-                        document.getElementById(target).classList.remove('show')
-                    }
-                    else {
-                        document.getElementById(target).classList.add
-                            ('show')
-                    }
-                });
-            })
-        </script>
     </form>
 </body>
 </html>

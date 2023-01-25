@@ -19,21 +19,9 @@ namespace New_application.Admin
         {
             if (!IsPostBack)
             {
+                page_head.InnerText = Session["pagehead"].ToString();
                 fill();
-
             }
-        }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            ExecutePro("IN");
-            if (ViewState["msg"] != null)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Successfully Inserted')", true);
-            }
-        }
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Admin/frmUserSetup.aspx");
         }
         void fill()
         {
@@ -48,12 +36,24 @@ namespace New_application.Admin
             ddlStatus.DataValueField = "ID";
             ddlStatus.DataBind();
 
-            ExecutePro("getuser");
-            if (dt.Rows.Count > 0)
+            //ExecutePro("getuser");
+            //if (dt.Rows.Count > 0)
+            //{
+            //    rpt_data.DataSource = dt;
+            //    rpt_data.DataBind();
+            //}
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            ExecutePro("IN");
+            if (ViewState["msg"] != null)
             {
-                rpt_data.DataSource = dt;
-                rpt_data.DataBind();
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Successfully Inserted')", true);
             }
+        }
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/frmUserSetup.aspx");
         }
         void ExecutePro(string sAction)
         {
@@ -78,13 +78,11 @@ namespace New_application.Admin
             };
             ViewState["msg"] = obj.ExecuteSP("sp_Users", para, out dt);
         }
-
         protected void btnShowPopup_Click(object sender, EventArgs e)
         {
 
 
         }
-
         protected void button_Click(object sender, EventArgs e)
         {
 

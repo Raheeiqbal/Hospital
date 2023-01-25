@@ -15,13 +15,13 @@ namespace New_application.Admin
     {
 
         /// <summary>
-        /// button control.
+        /// page_head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl page_head;
 
         /// <summary>
         /// btnSubmit control.
@@ -265,14 +265,5 @@ namespace New_application.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConpass;
-
-        /// <summary>
-        /// rpt_data control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt_data;
     }
 }

@@ -36,16 +36,9 @@ namespace New_application.Admin
             {
                 txtrolcode.Text = data.Rows[0][0].ToString(); Session["Code"] = data.Rows[0][0].ToString();
             }
-
-            ExecuteProc("GD","","","");
-            if (data.Rows.Count > 0)
-            {
-               rpt_roleDetail.DataSource = data;
-                rpt_roleDetail.DataBind();
-            }
         }
         void ExecuteProc(string pAction, string pFormID, string pRoleCode, string pRoleName)
-        
+
         {
             string XMLR = "<Role>";
             if (Session["Code"] != null)
@@ -127,15 +120,9 @@ namespace New_application.Admin
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "MSG", "alert('" + ex + "')", true);
             }
         }
-
         protected void btnReset_Click(object sender, EventArgs e)
         {
             Response.Redirect("\\Admin/frmRoleSetup.aspx");
-        }
-
-        protected void button_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

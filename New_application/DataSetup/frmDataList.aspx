@@ -6,13 +6,13 @@
             <main id="main">
                 <div class="needs-validation">
                     <div class="pagetitle">
-                        <h1 style="font-family: 'bootstrap-icons'">Data List</h1>
+                        <h1 id="page_head" runat="server" style="font-family: 'bootstrap-icons'" >Page head</h1>
                     </div>
                     <hr />
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="row">
                             <div class="col-md-12">
-                                <asp:Button ID="btnAddN" class="btn btn-primary" runat="server" Text="Add New" visible="false"/>
+                                <asp:Button ID="btnAddN" class="btn btn-primary" runat="server" Text="Add New" visible="false" OnClick="btnAddN_Click"/>
                                 <asp:Button ID="btnReset" class="btn btn-primary" runat="server" Text="Reset" OnClientClick="return confirm('Do you want Reset?')" />
                             </div>
                         </div>
@@ -69,11 +69,6 @@
                             </table>
                         </div>
                         <div class="row">
-                            <%-- <asp:GridView ID="GrdList" runat="server" class="table table-bordered table table-striped table table-hover table-responsive" AllowSorting="true" OnSorting="GrdList_Sorting" DataKeyNames="rowid" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True"
-                            AutoGenerateColumns="False" Width="100%" OnPageIndexChanging="GrdList_PageIndexChanging1" OnRowDataBound="GrdList_RowDataBound" OnSelectedIndexChanged="GrdList_SelectedIndexChanged">
-                            <AlternatingRowStyle CssClass="alt" />
-                            <PagerStyle CssClass="pgr" />
-                        </asp:GridView>--%>
                             <div class="col-md-12">
                                 <asp:GridView ID="GrdList" runat="server" class="table table-bordered table table-striped table table-hover table-responsive" Width="100%" CellSpacing="0"></asp:GridView>
                             </div>

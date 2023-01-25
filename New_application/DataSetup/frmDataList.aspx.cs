@@ -19,7 +19,6 @@ namespace New_application.DataSetup
         {
             if (!IsPostBack)
             {
-                Session["List_URl"] = Request.Url;
                 setpage();
                 if (ViewState["page"] != null && ViewState["page"].ToString() != "")
                 {
@@ -29,7 +28,6 @@ namespace New_application.DataSetup
 
             }
         }
-
         void setpage()
         {
             if (Session["pro_name"] == null) { return; }
@@ -46,6 +44,7 @@ namespace New_application.DataSetup
             };
             string msg = obj.ExecuteSP("Sp_GetListData", para, out data);
             data.Dispose();
+            Session["Pagehead"] = data.Tables[0].Rows[0]["Formname"].ToString();
             if (data.Tables[0].Rows.Count > 0 && data.Tables[1].Rows.Count > 0)
             {
                 string proname = (data.Tables[0].Rows[0]["procedure_name"].ToString());
@@ -72,6 +71,7 @@ namespace New_application.DataSetup
                 string gridheader = data.Tables[0].Rows[0]["grid_header"].ToString();
                 string bindcolumn = data.Tables[0].Rows[0]["grid_bindcolumn"].ToString();
                 ViewState["page"] = data.Tables[0].Rows[0]["dml_formlink"].ToString();
+
                 ViewState["Form_ID"] = sFormID;
                 try
                 {
@@ -110,25 +110,26 @@ namespace New_application.DataSetup
                     throw;
                 }
             }
+            page_head.InnerText = Session["pagehead"].ToString();
 
         }
-
         protected void GrdList_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
         }
-
         protected void GrdList_Sorting(object sender, GridViewSortEventArgs e)
         {
 
         }
-
         protected void GrdList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
 
         }
-
         protected void GrdList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected void btnAddN_Click(object sender, EventArgs e)
         {
 
         }
